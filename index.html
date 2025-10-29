@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VisCoder2</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/f8ddf9854a.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="Building Multi-Language Visualization Coding Agents">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> VisCoder2: Building Multi-Language Visualization Coding Agents</title>
+    <link rel="icon" href="./static/images/icon.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <script src="https://kit.fontawesome.com/fff5b27ec1.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+  </head>
+  <body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              More Research
+            </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="https://tiger-ai-lab.github.io/VisCoder/">
+                <b>VisCoder</b> <span style="font-size:18px; display: inline; margin-left: 5px;">🔥</span>
+              </a>
+              <a class="navbar-item" href="https://tiger-ai-lab.github.io/VisCoder/">
+                MMMU-Pro
+              </a>
+              <a class="navbar-item" href="https://mmmu-benchmark.github.io/">
+                MMMU
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title is-bold">
+                <img src="static/images/icon.png" style="width:1em;vertical-align: middle" alt="Logo"/>
+                <span class="mmmu" style="vertical-align: middle">VisCoder2</span>
+              </h1>
+              <h2 class="subtitle is-3 publication-subtitle">
+                Building Multi-Language Visualization Coding Agents
+              </h2>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="https://yuanshengni.github.io/" style="text-decoration: none; color: inherit;">Yuansheng Ni<sup>1</sup>*†</a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://ondinemrcai.github.io/" style="text-decoration: none; color: inherit;">Songcheng Cai<sup>1</sup>*</a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://www.chasechen.xyz/" style="text-decoration: none; color: inherit;">Xiangchao Chen<sup>1</sup>*</a>,
+                </span>
+                <br>
+                <span class="author-block">Jiarong Liang<sup>1</sup></span>,
+                <span class="author-block">Zhiheng Lyu<sup>1</sup></span>,
+                <span class="author-block">Jiaqi Deng<sup>3</sup></span>,
+                <span class="author-block">Ping Nie<sup>5</sup></span>,
+                <span class="author-block">Kai Zou<sup>4</sup></span>,
+                <span class="author-block">Fei Yuan<sup>5</sup></span>,
+                <span class="author-block">
+                  <a href="https://xiangyue9607.github.io/" style="text-decoration: none; color: inherit;">Xiang Yue<sup>2</sup></a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://wenhuchen.github.io/" style="text-decoration: none; color: inherit;">Wenhu Chen<sup>1</sup>†</a>
+                </span>
+              </div>
+              <br>
+              <div class="is-size-5 publication-authors">
+                <div class="author-block">
+                  <sup>1</sup> University of Waterloo,
+                  <sup>2</sup> Carnegie Mellon University,
+                  <sup>3</sup> Korea Advanced Institute of Science &amp; Technology,
+                  <sup>4</sup> Netmind.ai,
+                  <sup>5</sup> Independent
+                </div>
+                <div class="author-block">
+                  <br>
+                  † Equal contributions. Corresponding to:
+                  <a href="mailto:yuansheng.ni@uwaterloo.ca">yuansheng.ni@uwaterloo.ca</a>,
+                  <a href="mailto:wenhuchen@uwaterloo.ca">wenhuchen@uwaterloo.ca</a>
+                </div>
+              </div>
+              
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="https://arxiv.org/abs/2506.03930" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://huggingface.co/datasets/TIGER-Lab/VisCode-Multi-679K" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon" style="font-size:18px">🤗</span>
+                      <span>VisCode-Multi-679K</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://huggingface.co/datasets/TIGER-Lab/VisPlotBench" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon" style="font-size:18px">🤗</span>
+                      <span>VisPlotBench</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://hf.co/collections/TIGER-Lab/viscoder2" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon" style="font-size:18px">🤗</span>
+                      <span>VisCoder2</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://github.com/TIGER-AI-Lab/VisCoder2" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#examples" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon has-text-white">
+                        <i class="fa-solid fa-book"></i>
+                      </span>
+                      <span>Examples</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="container is-max-desktop has-text-centered">
+        <img src="static/images/overview.png" alt="geometric reasoning" width="80%">
+        <p>Overview of VisCoder2. VisCoder2 present three components: 
+          1) <b>VisCode-Multi-679K</b>: a dataset of executable code–visualization pairs with multi-round correction dialogues across 12 programming languages; 
+          2) <b>VisPlotBench</b>: spanning 8 languages with natural language instructions, executable code, and rendered outputs; 
+          3) <b>VisCoder2</b>: a family of visualization coding agents that iteratively execute, render, and self-debug, approaching the performance of proprietary models.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="margin-bottom: 2vh;">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+              Large language models (LLMs) have recently enabled coding agents capable of generating, executing, and revising visualization code. However, existing models often fail in practical workflows due to limited language coverage, unreliable execution, and lack of iterative correction mechanisms. Progress has been constrained by narrow datasets and benchmarks that emphasize single-round generation and single-language tasks. To address these challenges, we introduce three complementary resources for advancing visualization coding agents. <strong>VisCode-Multi-679K</strong> is a large-scale, supervised dataset containing 679K validated and executable visualization samples with multi-turn correction dialogues across 12 programming languages. <strong>VisPlotBench</strong> is a benchmark for systematic evaluation, featuring executable tasks, rendered outputs, and protocols for both initial generation and multi-round self-debug. Finally, we present <strong>VisCoder2</strong>, a family of multi-language visualization models trained on VisCode-Multi-679K. Experiments show that VisCoder2 significantly outperforms strong open-source baselines and approaches the performance of proprietary models like GPT-4.1, with further gains from iterative self-debug, reaching <strong>82.4%</strong> overall execution pass rate at the 32B scale, particularly in symbolic or compiler-dependent languages.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+    </div>
+    </section>
+
+    <!-- DATASET SECTION -->
+    <section class="hero is-light is-small">
+      <div class="hero-body has-text-centered">
+        <h1 class="title is-1 mmmu">
+          <img src="static/images/icon.png" alt="Logo" class="mmmu-logo"/>
+          <span class="mmmu">VisCode-Multi-679K</span>
+        </h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Overview</h2>
+            <div class="content has-text-justified">
+              <p>
+                <strong>VisCode-Multi-679K</strong> a supervised instruction tuning dataset for visualization code generation and feedback-driven correction across twelve programming languages. It integrates two complementary sources of supervision: (1) a large collection of executable visualization code extracted from open source repositories across twelve programming languages, spanning diverse chart types, libraries, and real-world usage patterns and validated for runtime execution and paired with its rendered output, ensuring reliable supervision for multi-language code generation; and (2) over 66K multi-turn dialogues from the Code-Feedback dataset, which provide feedback-based supervision for code correction. These interactions are critical for modeling realistic correction behaviors in iterative workflows. The full pipeline consists of code filtering, runtime validation, and structured instruction generation.
+              </p>
+              <div class="content has-text-centered">
+                <img src="static/images/pipeline.png" alt="Data Pipeline" class="center" style="max-width: 100%; height: auto;">
+                <p>
+                  Data construction pipeline for VisCode-Multi-679K. We extract and filter visualization code blocks from open-source repositories and synthetic corpora across twelve programming languages, validate their executability and plot rendering via Jupyter-based runtime checks, and generate structured instructions paired with rendered plots. We integrate multi-turn correction data from Code-Feedback during instruction construction to support iterative refinement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Code Extraction from Public Repositories</h2>
+            <div class="content has-text-justified">
+              <p>
+                To build a large corpus of multi-language executable visualization code, we source data from three complementary open datasets: 
+                <a href="https://huggingface.co/datasets/bigcode/the-stack-v2" target="_blank"><code>the-stack-v2</code></a>,
+                <a href="https://huggingface.co/datasets/starvector/svg-diagrams" target="_blank"><code>svg-diagrams</code></a>,
+                and
+                <a href="https://huggingface.co/datasets/allenai/CoSyn-400K" target="_blank"><code>CoSyn-400K</code></a>.
+                These sources cover both natural and synthetic visualization usage across twelve languages and diverse rendering styles. 
+                The full pipeline includes four stages: library-based filtering, code block extraction, runtime validation, and instruction generation.
+              </p>
+            </div>
+
+            <div class="carousel results-carousel">
+
+              <!-- Box 1 -->
+              <div class="box m-5">
+                <div class="columns is-centered">
+                  <div class="column is-three-quarters">
+                    <div class="content has-text-centered">
+                      <h3 class="title is-5"><strong>Filtering and Code Block Extraction</strong></h3>
+                    </div>
+                    <div class="content has-text-justified">
+                      <p>
+                        From <strong>the-stack-v2</strong> and its high-quality subsets 
+                        <a href="https://huggingface.co/datasets/HuggingFaceTB/stack-edu" target="_blank"><code>stack-edu</code></a> 
+                        and <a href="https://huggingface.co/datasets/bigcode/the-stack-v2-train-smol-ids" target="_blank"><code>the-stack-v2-train-smol-ids</code></a>,
+                        we identify approximately 5.3M visualization-related code candidates across multiple languages, including Python, JavaScript, C++, TypeScript, HTML, and R.
+                        Since many examples are embedded in broader program contexts, we use <code>GPT-4.1-mini</code> to extract self-contained plotting blocks.
+                        For missing data definitions, mock inputs are inserted to ensure each block executes independently.
+                      </p>
+                      <p>
+                        For <a href="https://huggingface.co/datasets/starvector/svg-diagrams" target="_blank"><code>svg-diagrams</code></a>, we filter 182K SVG-based diagram samples and retain about 79K valid visualization blocks.
+                        For <a href="https://huggingface.co/datasets/allenai/CoSyn-400K" target="_blank"><code>CoSyn-400K</code></a>, we select 408K structured visualization snippets across eight languages (e.g., Python, HTML, LaTeX, SVG, Asymptote, Mermaid, LilyPond, Vega-Lite) 
+                        and reconstruct runnable scripts where needed by inserting minimal data or plotting calls. 
+                        In total, roughly 900K candidate blocks are collected before validation.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Box 2 -->
+              <div class="box m-5">
+                <div class="columns is-centered">
+                  <div class="column is-three-quarters">
+                    <div class="content has-text-centered">
+                      <h3 class="title is-5"><strong>Runtime Validation</strong></h3>
+                    </div>
+                    <div class="content has-text-justified">
+                      <p>
+                        We verify executability in isolated Jupyter environments with dedicated kernels for each language 
+                        (<code>C++</code>, <code>JavaScript</code>, <code>R</code>, etc.). 
+                        All blocks are executed using <code>nbconvert</code> with <code>allow-error=False</code> under strict timeout control.
+                        We terminate hanging or looping executions via simulated keyboard interrupts and discard monochrome or invalid outputs.
+                      </p>
+                      <p>
+                        The final validated set includes 245K plotting scripts from <code>the-stack-v2</code>, 
+                        43K from <a href="https://huggingface.co/datasets/starvector/svg-diagrams" target="_blank"><code>svg-diagrams</code></a>, and 322K from <a href="https://huggingface.co/datasets/allenai/CoSyn-400K" target="_blank"><code>CoSyn-400K</code></a>, 
+                        each paired with its rendered visualization output.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Box 3 -->
+              <div class="box m-5">
+                <div class="columns is-centered">
+                  <div class="column is-three-quarters">
+                    <div class="content has-text-centered">
+                      <h3 class="title is-5"><strong>Instruction Generation</strong></h3>
+                    </div>
+                    <div class="content has-text-justified">
+                      <p>
+                        To produce consistent and interpretable supervision signals, we use <code>GPT-4.1</code> to generate natural language instructions for each validated code-image pair.
+                        Each instruction consists of five structured components: 
+                        (1) setup description (language and libraries), 
+                        (2) data or visual description, 
+                        (3) a small data preview (if applicable), 
+                        (4) high-level output description, and 
+                        (5) style description.
+                      </p>
+                      <p>
+                        This unified template ensures that every example includes both structural and semantic context for visualization code generation, 
+                        enabling instruction tuning across diverse programming languages and visualization styles.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Multi-turn Feedback Integration</h2>
+            <div class="content has-text-justified">
+              <p>
+                To support iterative refinement and self-correction, we integrate <strong>over 66K multi-turn dialogues</strong> from the 
+                <a href="https://huggingface.co/datasets/m-a-p/Code-Feedback" target="_blank">Code-Feedback</a> dataset. 
+                These dialogues span languages such as Python, HTML, JavaScript, and R, containing user instructions, model-generated code, 
+                and follow-up turns with execution feedback or correction requests.
+              </p>
+              <p>
+                Although not restricted to visualization, these interactions provide critical training signals for models to 
+                interpret runtime feedback and revise faulty code. 
+                The dialogues are combined with single-turn samples from <code>the-stack-v2</code>, <code>svg-diagrams</code>, and <code>CoSyn-400K</code>, 
+                allowing models to learn both initial generation and <strong>multi-turn correction strategies</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-light is-small">
+      <div class="hero-body has-text-centered">
+        <h1 class="title is-1 mmmu">
+          <img src="static/images/icon.png" alt="Logo" class="mmmu-logo"/>
+          <span class="mmmu">VisPlotBench</span>
+        </h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Overview</h2>
+            <div class="content has-text-justified">
+              <p>
+                <strong>VisPlotBench</strong> is a standardized benchmark designed to evaluate visualization coding agents across multiple programming languages. 
+                It covers eight visualization languages and includes 888 diverse visualization tasks. 
+                Each task pairs a natural language instruction with its corresponding rendered visual and is annotated with both a Visual Category and a Subtype, spanning a total of 13 categories. 
+                This design enables fine-grained analysis of model capabilities in understanding, generating, and correcting visualization code across symbolic, declarative, and procedural paradigms.
+              </p>
+              <figure class="has-text-centered">
+                <img src="static/images/visplotbench_overview.png" alt="Overview of VisPlotBench" style="width:80%">
+                <p>
+                  Overview of VisPlotBench. The benchmark covers eight visualization languages and contains 888 diverse visualization tasks, each combining a natural language instruction and a rendered visual. Tasks are annotated with a Visual category and a Subtype, spanning 13 categories in total.
+                </p>
+              </figure>
+              <p>
+                Existing visualization benchmarks are narrow in scope: most cover a single language, few chart families,
+                and no iterative debugging. <strong>VisPlotBench</strong> fills these gaps with 888 tasks across eight languages
+                and 13 Visual categories. The taxonomy spans common families such as Bars, Lines, and Scatter,
+                while adding rarely represented ones like Hierarchies, Music, and Networks &amp; Flows.
+                Each task combines a natural language instruction, executable code, and a rendered output,
+                enabling execution-grounded evaluation. With its execute–render–score protocol and multi-round self-debug loop,
+                VisPlotBench provides the first systematic benchmark for assessing visualization coding agents
+                across languages and task types.
+              </p>
+    
+              <figure class="has-text-centered">
+                <img src="static/images/visplotbench_table.png" alt="Comparison with existing benchmarks" style="width:65%">
+              </figure>
+    
+              <p>
+                The table above positions VisPlotBench among representative benchmarks across four dimensions:
+                language coverage, visual categories, self-debug support, and dataset size.
+                Earlier resources remain narrow—focusing on <code>Python</code> or <code>Vega-Lite</code>,
+                with limited chart types and no iterative debugging.
+                VisCoder introduced self-debugging for PandasPlotBench, while VisPlotBench generalizes this to eight languages,
+                expands coverage to 13 categories (including Hierarchies, Music, and Networks &amp; Flows),
+                and standardizes evaluation for systematic cross-language assessment.
+              </p>
+    
+              <div class="carousel results-carousel">
+
+                <!-- Box 1 -->
+                <div class="box m-5">
+                  <div class="columns is-centered">
+                    <div class="column is-three-quarters">
+                      <div class="content has-text-centered">
+                        <h3 class="title is-5"><strong>Data Collection and Curation</strong></h3>
+                      </div>
+                      <div class="content has-text-justified">
+                        <p>
+                          We curate a high-quality pool of visualization tasks from multiple open datasets and repositories, 
+                          ensuring broad coverage across both general-purpose and domain-specific visualization frameworks.
+                          Each example is verified for executability, correct rendering, and consistent natural language pairing.
+                        </p>
+                        <p>
+                          Sources include <code>the-stack-v2</code>, <code>svg-diagrams</code>, and <code>CoSyn-400K</code>, 
+                          spanning languages such as <code>Python</code>, <code>JavaScript</code>, <code>LaTeX</code>, 
+                          <code>Asymptote</code>, <code>Vega-Lite</code>, and <code>LilyPond</code>. 
+                          During curation, invalid, monochrome, or non-visual outputs are filtered, and missing inputs are synthetically reconstructed to ensure each sample executes independently.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Box 2 -->
+                <div class="box m-5">
+                  <div class="columns is-centered">
+                    <div class="column is-three-quarters">
+                      <div class="content has-text-centered">
+                        <h3 class="title is-5"><strong>Task Construction</strong></h3>
+                      </div>
+                      <div class="content has-text-justified">
+                        <p>
+                          Each task in VisPlotBench combines a runnable visualization script with a natural language prompt that describes its intended output. 
+                          Tasks are categorized into 13 major visual types, such as statistical plots, geometric diagrams, music scores, network graphs, and typographic layouts, each subdivided into finer-grained subtypes. 
+                        </p>
+                        <p>
+                          The benchmark emphasizes diversity and interpretability: prompts include sufficient context to test an agent’s understanding of syntax, semantics, and rendering logic, rather than mere text-to-code matching. 
+                          By covering both declarative and procedural paradigms, VisPlotBench evaluates how well models generalize across visualization styles and language conventions.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Box 3 -->
+                <div class="box m-5">
+                  <div class="columns is-centered">
+                    <div class="column is-three-quarters">
+                      <div class="content has-text-centered">
+                        <h3 class="title is-5"><strong>Evaluation Protocol</strong></h3>
+                      </div>
+                      <div class="content has-text-justified">
+                        <p>
+                          Evaluation follows a unified <strong>execute–render–score</strong> protocol. 
+                          Each model-generated code snippet is executed in a sandboxed environment specific to its target language, rendered into an image, and compared against the reference visualization.
+                        </p>
+                        <p>
+                          Quantitative metrics include execution success rate, structural similarity between generated and reference visuals, 
+                          and semantic alignment scores derived from visual encoders. 
+                          This consistent evaluation pipeline ensures comparability across languages, promoting fair benchmarking of multi-language visualization agents.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          
+              </div>
+            </div>
+    </section>
+    
+    <!-- RESULTS SECTION -->
+    <section class="hero is-light is-small">
+      <div class="hero-body has-text-centered">
+        <h1 class="title is-1 mmmu">Experiment Results</h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-- Overall Main Results Intro -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Main Results</h2>
+            <div class="content has-text-justified">
+              <p>
+                We evaluate both proprietary and open-source models on VisPlotBench to compare execution reliability across parameter scales, programming languages, and evaluation modes. Proprietary references include GPT-4.1 and its lighter variant GPT-4.1-mini, while open-source baselines include DeepSeek-Coder, DeepSeek-CoderV2, Qwen2.5-Coder, and VisCoder. Our VisCoder2 models are trained on VisCode-Multi-679K using Qwen2.5-Coder backbones at 3B, 7B, 14B, and 32B scales.
+              </p>
+            </div>
+            <div class="content has-text-centered">
+              <img src="static/images/main_results.png" alt="main results" style="width: 80%">
+              <p class="mt-3">
+                Overall execution pass rate (%) of selected models on the VisPlotBench benchmark. The best-performing model in each scale is shown in <strong>bold</strong>, and the second best is <u>underlined</u>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Insights Boxes -->
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <div class="carousel results-carousel">
+
+              <!-- Box 1: Proprietary Models -->
+              <div class="box m-5">
+                <div class="columns is-centered">
+                  <div class="column is-three-quarters">
+                    <div class="content has-text-centered">
+                      <h3 class="title is-5"><strong>Proprietary Models Remain Stronger</strong></h3>
+                    </div>
+                    <div class="content has-text-justified">
+                      <p>
+                        GPT-4.1 achieves 63.4% overall, the highest among reference models, and GPT-4.1-mini follows closely. Both perform strongly on standardized declarative or markup languages such as <code>Vega-Lite</code>, <code>SVG</code>, and <code>HTML</code>, all above 84%. In contrast, instruction-tuned open-source models remain far behind. At the 7B scale, Qwen2.5-Coder reaches only 51.2% overall, with fewer than 30% on <code>LaTeX</code> and just 5.5% on <code>LilyPond</code>. Previous VisCoder variants improve <code>Python</code> performance but fail to generalize across languages. These results underline the substantial gap between proprietary and open-source models.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Box 2: Cross-Language Variation -->
+              <div class="box m-5">
+                <div class="columns is-centered">
+                  <div class="column is-three-quarters">
+                    <div class="content has-text-centered">
+                      <h3 class="title is-5"><strong>Cross-Language Variation</strong></h3>
+                    </div>
+                    <div class="content has-text-justified">
+                      <p>
+                        Performance differs sharply across visualization languages. <code>Vega-Lite</code> and <code>HTML</code> are close to saturation for most models, while <code>Python</code> shows steady gains with scale. By contrast, symbolic and compiler-dependent languages remain the most difficult. Even GPT-4.1 achieves less than 45% on <code>LilyPond</code> and under 25% on <code>Asymptote</code>, and open-source baselines fall much lower. This uneven landscape highlights that progress on symbolic grammars is the key bottleneck for reliable multi-language visualization.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Box 3: VisCoder2 Advantage -->
+              <div class="box m-5">
+                <div class="columns is-centered">
+                  <div class="column is-three-quarters">
+                    <div class="content has-text-centered">
+                      <h3 class="title is-5"><strong>VisCoder2 Advantage</strong></h3>
+                    </div>
+                    <div class="content has-text-justified">
+                      <p>
+                        Across all scales, VisCoder2 consistently outperforms size-matched open-source baselines. At 32B, it improves overall execution pass rate by approximately 15 points compared with Qwen2.5-Coder and reaches parity with GPT-4.1. The only consistent shortfall is on <code>SVG</code>, where VisCoder2 trails the strongest baseline by over 10 points. Overall, VisCoder2 is the first open-source model to match proprietary reliability on executable visualization tasks.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Box 4: Effect of Self-Debug -->
+              <div class="box m-5">
+                <div class="columns is-centered">
+                  <div class="column is-three-quarters">
+                    <div class="content has-text-centered">
+                      <h3 class="title is-5"><strong>Effect of Self-Debug</strong></h3>
+                    </div>
+                    <div class="content has-text-justified">
+                      <p>
+                        Iterative correction consistently improves execution reliability across model families and scales. Proprietary models benefit strongly, and VisCoder2 follows the same trend: at larger scales, overall execution rises by nearly ten points when self-debugging is enabled. The effect is especially pronounced for symbolic and compiler-dependent languages such as <code>LilyPond</code>, <code>LaTeX</code>, and <code>Asymptote</code>, where fragile syntax or compilation errors dominate. Self-debugging enables the model to repair these shallow but frequent failures, allowing models to resolve previously intractable failures into valid outputs. This demonstrates that feedback-driven refinement is not just a marginal improvement but a critical mechanism for tackling the hardest visualization languages.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Task and Visual Score Analysis Section -->
+        <div class="columns is-centered has-text-centered mt-6">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Task and Visual Score Analysis</h2>
+            <div class="content has-text-justified">
+              <p>
+                We analyze Task Score and Visual Score on three representative languages that highlight different behaviors: 
+                <code>LaTeX</code> illustrates execution–semantics mismatch, <code>LilyPond</code> shows the largest gains on symbolic grammars, 
+                and <code>SVG</code> exposes model–library sensitivity where semantic and perceptual signals diverge. 
+                Results for all languages and scales are provided in the appendix.
+              </p>
+            </div>
+            <div class="content has-text-centered">
+              <img src="static/images/score_analysis.png" alt="task and visual score analysis" style="width: 80%">
+              <p class="mt-3">
+                Performance of selected languages on the VisPlotBench benchmark. For each model, we report (1) execution pass rate (<strong>Exec Pass</strong>), (2) mean visual and task scores (<strong>Mean</strong>), and (3) the proportion of samples scoring at least 75 (<strong>Good</strong>). The best-performing model in each scale is shown in <strong>bold</strong>, and the second best is <u>underlined</u>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Score Analysis Insights Boxes -->
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <div class="carousel results-carousel">
+
+              <!-- Box 1: LaTeX -->
+              <div class="box m-5">
+                <div class="columns is-centered">
+                  <div class="column is-three-quarters">
+                    <div class="content has-text-centered">
+                      <h3 class="title is-5"><strong>LaTeX: Execution–Semantics Mismatch</strong></h3>
+                    </div>
+                    <div class="content has-text-justified">
+                      <p>
+                        Models often capture the intended structure of a figure but fail to compile reliably. For example, GPT-4.1 improves from 31.3% to 66.1% execution pass rate with Self-Debug, while task scores remain around 50 even when execution fails. VisCoder2 raises execution and task scores compared with baselines, but compilation errors remain frequent. This pattern indicates that semantic alignment does not always translate into successful rendering.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Box 2: LilyPond -->
+              <div class="box m-5">
+                <div class="columns is-centered">
+                  <div class="column is-three-quarters">
+                    <div class="content has-text-centered">
+                      <h3 class="title is-5"><strong>LilyPond: Symbolic Grammar Gains</strong></h3>
+                    </div>
+                    <div class="content has-text-justified">
+                      <p>
+                        VisCoder2 delivers the clearest advantage on symbolic languages. At 7B, Qwen2.5-Coder executes only 5.5% of tasks, while VisCoder2 reaches 69.1% and further improves with Self-Debug. The proportion of examples with task scores above 75 also increases by more than tenfold. These results show that targeted coverage of symbolic grammars in VisCode-Multi-679K translates directly into reliable generation and semantic adherence.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Box 3: SVG -->
+              <div class="box m-5">
+                <div class="columns is-centered">
+                  <div class="column is-three-quarters">
+                    <div class="content has-text-centered">
+                      <h3 class="title is-5"><strong>SVG: Sensitivity to Rendering Libraries</strong></h3>
+                    </div>
+                    <div class="content has-text-justified">
+                      <p>
+                        Execution success is high across most models, yet visual scores lag behind task scores. For instance, GPT-4.1 with Self-Debug achieves 95.4% execution and a task score near 90, but the average visual score is below 50. VisCoder2 performs competitively but trails Qwen2.5 on execution at larger scales (81.5% versus 93.9% at 32B). These discrepancies suggest that evaluation on <code>SVG</code> is strongly influenced by library-specific rendering details rather than semantic understanding alone.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        
+        <!-- ERROR ANALYSIS SECTION -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Error Analysis</h2>
+            <div class="content has-text-justified">
+              <p>
+                To examine the error recovery behavior of VisCoder-7B, we analyze how execution error counts transition 
+                before and after self-debugging. The table below summarizes four representative error types, grouped by plotting library. 
+                Each entry shows the count before and after debugging (e.g., 15 → 2).
+              </p>
+            </div>
+            <div class="content has-text-centered">
+              <img src="static/images/error_analysis.png" alt="Error Table" width="70%">
+              <p>
+                <strong>Execution error transitions</strong> for VisCoder-7B across four representative error types. 
+                Values show changes from the initial to post-debugging state. Structural issues (e.g., <code>AttributeError</code>) 
+                are often resolved, while semantic failures (e.g., <code>KeyError</code>) persist.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ERROR ANALYSIS BOXES -->
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <div class="carousel results-carousel">
+
+              <!-- Box 1: Error Analysis Overview -->
+              <div class="box m-5">
+                <div class="columns is-centered">
+                  <div class="column is-three-quarters">
+                    <div class="content has-text-centered">
+                      <h3 class="title is-5"><strong>Error Analysis Across Eight Languages</strong></h3>
+                    </div>
+                    <div class="content has-text-justified">
+                      <p>
+                        To better understand failure modes across languages, we analyze execution errors before and after self-debug. 
+                        Many language-specific exceptions, such as <code>FunctionSignatureError</code> in Asymptote or <code>MarkupError</code> in LilyPond, 
+                        were merged into four broader categories for clarity: <strong>Structural Errors</strong> (syntax or parsing), 
+                        <strong>Type & Interface Errors</strong> (invalid calls or arguments), <strong>Semantic / Data Errors</strong> (mismatched variables or values), 
+                        and <strong>Runtime / Environment Errors</strong> (renderer or package issues). 
+                        Representative results for VisCoder2-32B are shown below, demonstrating error transitions from initial failure to final self-debug round.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Box 2: Structural Recovery -->
+              <div class="box m-5">
+                <div class="columns is-centered">
+                  <div class="column is-three-quarters">
+                    <div class="content has-text-centered">
+                      <h3 class="title is-5"><strong>Effective Recovery on Structural and Interface Errors</strong></h3>
+                    </div>
+                    <div class="content has-text-justified">
+                      <p>
+                        Self-debug effectively reduces shallow errors such as missing tokens or invalid arguments across multiple languages. 
+                        For example, Python interface errors fall from 13 to 3, and structural errors in LilyPond decrease from 14 to 10. 
+                        Mermaid and Asymptote show the same trend, with syntax and function signature errors shrinking after correction 
+                        (Asymptote structural errors drop from 9 to 3). 
+                        These cases benefit from explicit diagnostic traces, making them relatively easy to fix through iterative feedback.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Box 3: Semantic Failures Persist -->
+              <div class="box m-5">
+                <div class="columns is-centered">
+                  <div class="column is-three-quarters">
+                    <div class="content has-text-centered">
+                      <h3 class="title is-5"><strong>Persistent Failures in Semantic and Runtime Errors</strong></h3>
+                    </div>
+                    <div class="content has-text-justified">
+                      <p>
+                        Errors involving semantics or execution environments remain difficult to resolve. 
+                        In LaTeX, undefined variables decrease only slightly (28 to 23), and Asymptote variable mismatches improve only marginally (15 to 11). 
+                        Renderer failures such as Vega-Lite rendering errors (2 to 2) and HTML request failures (3 to 2) often persist across all rounds. 
+                        These errors require deeper reasoning over symbolic grammars and runtime contexts, which current self-debug protocols cannot fully capture. 
+                        Symbolic languages and renderer-sensitive environments therefore remain the dominant bottlenecks, 
+                        pointing to the need for grammar-aware training objectives and more robust runtime integration.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- CASE STUDY SECTION -->
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3 has-text-centered" id="examples">Case Study Examples</h2>
+
+            <div class="carousel results-carousel">
+              <!-- Python: Correct -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/python_successful_generation.png" alt="case_matplotlib_correct" width="60%"/>
+                  <p class="mt-3"><strong>Python – Successful Generation:</strong> The model generates code that executes successfully and produces a plot consistent with the ground truth.</p>
+                </div>
+              </div>
+
+              <!-- Python: Self-Debug Recovery -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/python_self_debug_recovery.png" alt="case_matplotlib_correct" width="60%"/>
+                  <p class="mt-3"><strong>Python – Self-Debug Recovery:</strong> The initial code raises a <code>ValueError</code> and is resolved in the first round of self-debug, resulting in a corrected plot that matches the intended semantics.</p>
+                </div>
+              </div>
+
+              <!-- Python: Self-Debug Failed -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/python_self_debug_failed.png" alt="case_matplotlib_debug" width="60%"/>
+                  <p class="mt-3"><strong>Python – Self-Debug Failed:</strong> The initial code raises a <code>AttributeError</code> and is still failed after three rounds self-debug.</p>
+                </div>
+              </div>
+
+              <!-- Vega-Lite: Successful Generation -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/vega-lite_successful_generation.png" alt="case_vegalite_correct" width="60%"/>
+                  <p class="mt-3"><strong>Vega-Lite – Successful Generation:</strong> The model generates code that executes successfully and produces a plot consistent with the ground truth.</p>
+                </div>
+              </div>
+
+              <!-- Vega-Lite: Self-Debug Recovery -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/vega-lite_self_debug_recovery.png" alt="case_vegalite_recover" width="60%"/>
+                  <p class="mt-3"><strong>Vega-Lite – Self-Debug Recovery:</strong> The initial code raises a <code>TypeError</code> and is resolved in the second round of self-debug, resulting in a corrected plot that matches the intended semantics.</p>
+                </div>
+              </div>
+
+              <!-- Vega-Lite: Self-Debug Failed -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/vega-lite_self_debug_failed.png" alt="case_vegalite_failed" width="60%"/>
+                  <p class="mt-3"><strong>Vega-Lite – Self-Debug Failed:</strong> The initial code raises a <code>TypeError</code> and is still failed after three rounds self-debug.</p>
+                </div>
+              </div>
+
+              <!-- Lilypond: Successful Generation -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/lilypond_successful_generation.png" alt="case_lilypond_correct" width="60%"/>
+                  <p class="mt-3"><strong>Lilypond – Successful Generation:</strong> The model generates code that executes successfully and produces a plot consistent with the ground truth.</p>
+                </div>
+              </div>
+
+              <!-- Lilypond: Self-Debug Recovery -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/lilypond_self_debug_recovery.png" alt="case_lilypond_recover" width="60%"/>
+                  <p class="mt-3"><strong>Lilypond – Self-Debug Recovery:</strong> The initial code raises a <code>SyntaxError</code> and is resolved in the first round of self-debug, resulting in a corrected plot that matches the intended semantics.</p>
+                </div>
+              </div>
+
+              <!-- Lilypond: Self-Debug Failed -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/lilypond_self_debug_failed.png" alt="case_lilypond_failed" width="60%"/>
+                  <p class="mt-3"><strong>Lilypond – Self-Debug Failed:</strong> The initial code raises a <code>TypeError</code> and is still failed after three rounds self-debug.</p>
+                </div>
+              </div>
+
+              <!-- Mermaid: Successful Generation -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/mermaid_successful_generation.png" alt="case_mermaid_correct" width="60%"/>
+                  <p class="mt-3"><strong>Mermaid – Successful Generation:</strong> The model generates code that executes successfully and produces a plot consistent with the ground truth.</p>
+                </div>
+              </div>
+
+              <!-- Mermaid: Self-Debug Recovery -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/mermaid_self_debug_recovery.png" alt="case_mermaid_recover" width="60%"/>
+                  <p class="mt-3"><strong>Mermaid – Self-Debug Recovery:</strong> The initial code raises a <code>SyntaxError</code> and is resolved in the second round of self-debug, resulting in a corrected plot that matches the intended semantics.</p>
+                </div>
+              </div>
+
+              <!-- Mermaid: Self-Debug Failed -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/mermaid_self_debug_failed.png" alt="case_mermaid_failed" width="60%"/>
+                  <p class="mt-3"><strong>Mermaid – Self-Debug Failed:</strong> The initial code raises a <code>AttributeError</code> and is still failed after three rounds self-debug.</p>
+                </div>
+              </div>
+
+              <!-- SVG: Successful Generation -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/svg_successful_generation.png" alt="case_svg_correct" width="60%"/>
+                  <p class="mt-3"><strong>SVG – Successful Generation:</strong> The model generates code that executes successfully and produces a plot consistent with the ground truth.</p>
+                </div>
+              </div>
+
+              <!-- SVG: Self-Debug Recovery -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/svg_self_debug_recovery.png" alt="case_svg_recover1" width="60%"/>
+                  <p class="mt-3"><strong>SVG – Self-Debug Recovery:</strong> The initial code raises a <code>ExPatError</code> and is resolved in the first round of self-debug, resulting in a corrected plot that matches the intended semantics.</p>
+                </div>
+              </div>
+
+              <!-- SVG: Self-Debug Failed -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/svg_self_debug_failed.png" alt="case_svg_recover2" width="60%"/>
+                  <p class="mt-3"><strong>SVG – Self-Debug Failed:</strong> The initial code raises a <code>ParseError</code> and is still failed after three rounds self-debug.</p>
+                </div>
+              </div>
+
+              <!-- LaTeX: Successful Generation -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/latex_successful_generation.png" alt="case_latex_correct" width="60%"/>
+                  <p class="mt-3"><strong>LaTeX – Successful Generation:</strong> The model generates code that executes successfully and produces a plot consistent with the ground truth.</p>
+                </div>
+              </div>
+
+              <!-- LaTeX: Self-Debug Recovery -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/latex_self_debug_recovery.png" alt="case_latex_recover" width="60%"/>
+                  <p class="mt-3"><strong>LaTeX – Self-Debug Recovery:</strong> The initial code raises a <code>NameError</code> and is resolved in the second round of self-debug, resulting in a corrected plot that matches the intended semantics.</p>
+                </div>
+              </div>
+
+              <!-- LaTeX: Self-Debug Failed -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/latex_self_debug_failed.png" alt="case_latex_failed" width="60%"/>
+                  <p class="mt-3"><strong>LaTeX – Self-Debug Failed:</strong> The initial code raises a <code>NameError</code> and is still failed after three rounds self-debug.</p>
+                </div>
+              </div>
+
+              <!-- Asymptote: Successful Generation -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/asymptote_successful_generation.png" alt="case_asymptote_correct" width="60%"/>
+                  <p class="mt-3"><strong>Asymptote – Successful Generation:</strong> The model generates code that executes successfully and produces a plot consistent with the ground truth.</p>
+                </div>
+              </div>
+
+              <!-- Asymptote: Self-Debug Recovery -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/asymptote_self_debug_recovery.png" alt="case_asymptote_recover" width="60%"/>
+                  <p class="mt-3"><strong>Asymptote – Self-Debug Recovery:</strong> The initial code raises a <code>NameError</code> and is resolved in the third round of self-debug, resulting in a corrected plot that matches the intended semantics.</p>
+                </div>
+              </div>
+
+              <!-- Asymptote: Self-Debug Failed -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/asymptote_self_debug_failed.png" alt="case_asymptote_failed" width="60%"/>
+                  <p class="mt-3"><strong>Asymptote – Self-Debug Failed:</strong> The initial code raises a <code>TypeError</code> and is still failed after three rounds self-debug.</p>
+                </div>
+              </div>
+
+              <!-- HTML: Successful Generation -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/html_successful_generation.png" alt="case_html_correct" width="60%"/>
+                  <p class="mt-3"><strong>HTML – Successful Generation:</strong> The model generates code that executes successfully and produces a plot consistent with the ground truth.</p>
+                </div>
+              </div>
+
+              <!-- HTML: Self-Debug Recovery -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/html_self_debug_recovery.png" alt="case_html_recovery" width="60%"/>
+                  <p class="mt-3"><strong>HTML – Self-Debug Recovery:</strong> The initial code raises a <code>ImportError</code> and is resolved in the first round of self-debug, resulting in a corrected plot that matches the intended semantics.</p>
+                </div>
+              </div>
+
+              <!-- HTML: Self-Debug Failed -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/example_cases/html_self_debug_failed.png" alt="case_html_failed2" width="60%"/>
+                  <p class="mt-3"><strong>HTML – Self-Debug Failed:</strong> The initial code raises a <code>TypeError</code> and is still failed after three rounds self-debug.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- @PAN TODO: bibtex -->
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title is-3 has-text-centered">BibTeX</h2>
+        <pre><code>
+          @article{ni2025viscoder,
+            title={VisCoder: Fine-Tuning LLMs for Executable Python Visualization Code Generation},
+            author={Ni, Yuansheng and Nie, Ping and Zou, Kai and Yue, Xiang and Chen, Wenhu},
+            journal={arXiv preprint arXiv:2506.03930},
+            year={2025}
+          }
+    </code></pre>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is website adapted from <a href="https://nerfies.github.io">MathVista</a> and <a href="https://mmmu-benchmark.github.io/">MMMU</a>, licensed under a <a rel="license"
+                                                  href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
