@@ -1,6 +1,6 @@
 # VisCoder2: Building Multi-Language Visualization Coding Agents
 
-[**🌐 Project Page**](https://tiger-ai-lab.github.io/VisCoder2) | [**📖 arXiv**](https://arxiv.org/abs/2510.23642) | [**🤗 VisCode-Multi-679K**](https://huggingface.co/datasets/TIGER-Lab/VisCode-Multi-679K) | [**🤗 VisPlotBench**](https://huggingface.co/TIGER-Lab/VisPlotBench) | [**🤗 VisCoder2**](https://hf.co/collections/TIGER-Lab/viscoder2)
+[**🌐 Project Page**](https://tiger-ai-lab.github.io/VisCoder2) | [**📖 arXiv**](https://arxiv.org/abs/2510.23642) | [**🤗 VisCode-Multi-679K**](https://huggingface.co/datasets/TIGER-Lab/VisCode-Multi-679K) | [**🤗 VisPlotBench**](https://huggingface.co/datasets/TIGER-Lab/VisPlotBench) | [**🤗 VisCoder2**](https://hf.co/collections/TIGER-Lab/viscoder2)
 
 ---
 
