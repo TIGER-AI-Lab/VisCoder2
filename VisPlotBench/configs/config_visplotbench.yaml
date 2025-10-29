@@ -1,0 +1,32 @@
+run_mode: "" # e.g. normal or self_debug
+plotting_language: ""
+debug:
+  top_k: 3
+  output_dir: ""
+paths:
+  out_folder: ""
+  dataset_folder: "dataset"
+  results_filename: "results.json"
+  bench_stat_filename: ""
+  error_rate_file: ""
+benchmark_types: ["vis", "task"]
+data_descriptor: "head" # data descriptor. Options: "pycharm", "datalore", "lida", "head", "describe", "empty"
+
+model_plot_gen:
+  names: [
+    "Qwen/Qwen2.5-Coder-3B-Instruct",
+    "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "Qwen/Qwen2.5-Coder-14B-Instruct",
+    "Qwen/Qwen2.5-Coder-32B-Instruct",
+    "TIGER-Lab/VisCoder2-3B",
+    "TIGER-Lab/VisCoder2-7B",
+    "TIGER-Lab/VisCoder2-14B",
+    "TIGER-Lab/VisCoder2-32B",
+    ]
+  parameters:
+    temperature: 0.0
+    
+model_judge:
+  name: "openai/gpt-4.1"
+  parameters:
+    temperature: 0.0
