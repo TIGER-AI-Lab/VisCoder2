@@ -66,14 +66,11 @@ See the following folders for details:
 **BibTeX:**
 
 ```bibtex
-@misc{ni2025viscoder2buildingmultilanguagevisualization,
-      title={VisCoder2: Building Multi-Language Visualization Coding Agents}, 
-      author={Yuansheng Ni and Songcheng Cai and Xiangchao Chen and Jiarong Liang and Zhiheng Lyu and Jiaqi Deng and Kai Zou and Ping Nie and Fei Yuan and Xiang Yue and Wenhu Chen},
-      year={2025},
-      eprint={2510.23642},
-      archivePrefix={arXiv},
-      primaryClass={cs.SE},
-      url={https://arxiv.org/abs/2510.23642}, 
+@article{ni2025viscoder2,
+  title={VisCoder2: Building Multi-Language Visualization Coding Agents},
+  author={Ni, Yuansheng and Cai, Songcheng and Chen, Xiangchao and Liang, Jiarong and Lyu, Zhiheng and Deng, Jiaqi and Zou, Kai and Nie, Ping and Yuan, Fei and Yue, Xiang and others},
+  journal={arXiv preprint arXiv:2510.23642},
+  year={2025}
 }
 
 @article{ni2025viscoder,
