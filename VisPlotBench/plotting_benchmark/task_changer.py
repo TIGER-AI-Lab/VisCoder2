@@ -64,7 +64,7 @@ class TaskChanger:
         self, task_text: str | None, df: pd.DataFrame, dp_row: pd.Series
     ) -> str:
         setup_instruct = self.setup_instruct
-        if 'used_lib' in dp_row and pd.notna(dp_row['used_lib']):
+        if 'used_lib' in dp_row and not isinstance(dp_row['used_lib'], (list, tuple, np.ndarray)) and pd.notna(dp_row['used_lib']):
             used_lib = str(dp_row['used_lib']).strip()
             setup_instruct = setup_instruct.replace('[USED_LIB]', used_lib)
             if used_lib == 'holoviews':
